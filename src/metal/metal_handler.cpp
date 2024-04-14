@@ -7,6 +7,9 @@
 namespace metal::handler {
 MetalHandler::MetalHandler() {
     auto device = MTL::CreateSystemDefaultDevice();
+    auto command_queue = device->newCommandQueue();
+    auto render = std::make_unique<MTL::RenderPassDescriptor>();
+
 }
 MetalHandler::~MetalHandler() {}
 }  // namespace metal::handler

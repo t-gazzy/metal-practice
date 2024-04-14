@@ -10,9 +10,12 @@ find_library(GLFW
 
 add_subdirectory(src)
 
-add_executable(${PROJECT_NAME} src/main.cpp ${METAL})
+add_executable(${PROJECT_NAME} src/main.cpp ${METAL} ${GLFW_HANDLER})
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/deps/metal-cpp deps/GLFW)
+target_include_directories(${PROJECT_NAME} PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/deps/metal-cpp deps/GLFW 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    )
 target_link_libraries(${PROJECT_NAME} PUBLIC
     ${GLFW}
     "-framework Foundation"
